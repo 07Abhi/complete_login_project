@@ -1,3 +1,4 @@
+import 'package:completeloginproject/constant/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -73,24 +74,7 @@ class _UserScreenState extends State<UserScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-//          Visibility(
-//            visible: (widget.fbUser!=null && widget.googleSignInData!=null)?true:false,
-//            child: Image(
-//              image: widget.fbUser != null
-//                  ? NetworkImage(widget.fbProfileData['picture']['data']['url'])
-//                  : NetworkImage(widget.googleSignInData.currentUser.photoUrl),
-//            ),
-//          ),
-//          Visibility(
-//            visible: (widget.fbUser!=null && widget.googleSignInData!=null)?true:false,
-//            child: Text(
-//              widget.fbUser != null
-//                  ? widget.fbProfileData['name']
-//                  : widget.googleSignInData.currentUser.displayName,
-//              style: KredTextStyle,
-//              textAlign: TextAlign.center,
-//            ),
-//          ),
+            Text('Hello Wolrd',style: KredTextStyle,)
           ],
         ),
       ),
