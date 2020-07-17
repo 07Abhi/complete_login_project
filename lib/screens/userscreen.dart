@@ -33,45 +33,46 @@ class _UserScreenState extends State<UserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'User Screen',
-          style: TextStyle(
-              color: Colors.black87, fontFamily: 'Ubuntu', fontSize: 20.0),
-        ),
-        automaticallyImplyLeading: false,
-        leading: null,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () async {
-              if (widget.fbUser != null) {
-                await signOut();
-              } else if (widget.googleSignInData != null) {
-                await widget.authSignout.signOut().then((value) {
-                  widget.googleSignInData.signOut();
-                });
-                Navigator.pop(context);
-              } else {
-                widget.authSignout.signOut();
-                Navigator.pop(context);
-                SystemChannels.textInput.invokeMethod('TextInput.hide');
-              }
-              Toast.show('Logout Successfully!!', context,
-                  gravity: Toast.BOTTOM,
-                  duration: Toast.LENGTH_SHORT,
-                  textColor: Colors.white,
-                  backgroundColor: Colors.grey);
-              Navigator.pop(context);
-            },
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'User Screen',
+            style: TextStyle(
+                color: Colors.black87, fontFamily: 'Ubuntu', fontSize: 20.0),
           ),
-        ],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
+          automaticallyImplyLeading: false,
+          leading: null,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () async {
+                if (widget.fbUser != null) {
+                  await signOut();
+                } else if (widget.googleSignInData != null) {
+                  await widget.authSignout.signOut().then((value) {
+                    widget.googleSignInData.signOut();
+                  });
+                  Navigator.pop(context);
+                } else {
+                  widget.authSignout.signOut();
+                  Navigator.pop(context);
+                  SystemChannels.textInput.invokeMethod('TextInput.hide');
+                }
+                Toast.show('Logout Successfully!!', context,
+                    gravity: Toast.BOTTOM,
+                    duration: Toast.LENGTH_SHORT,
+                    textColor: Colors.white,
+                    backgroundColor: Colors.grey);
+              },
+            ),
+          ],
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
 //          Visibility(
 //            visible: (widget.fbUser!=null && widget.googleSignInData!=null)?true:false,
 //            child: Image(
@@ -90,7 +91,8 @@ class _UserScreenState extends State<UserScreen> {
 //              textAlign: TextAlign.center,
 //            ),
 //          ),
-        ],
+          ],
+        ),
       ),
     );
   }

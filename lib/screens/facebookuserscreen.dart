@@ -31,45 +31,48 @@ class _UserScreenState extends State<FacebookUser> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'User Screen',
-          style: TextStyle(
-              color: Colors.black87, fontFamily: 'Ubuntu', fontSize: 20.0),
+    return WillPopScope(
+      onWillPop: ()async=>false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'User Screen',
+            style: TextStyle(
+                color: Colors.black87, fontFamily: 'Ubuntu', fontSize: 20.0),
+          ),
+          automaticallyImplyLeading: false,
+          leading: null,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () async {
+                if (widget.fbUser != null) {
+                  await signOut();
+                }
+                Toast.show('Logout Successfully!!', context,
+                    gravity: Toast.BOTTOM,
+                    duration: Toast.LENGTH_SHORT,
+                    textColor: Colors.white,
+                    backgroundColor: Colors.grey);
+                Navigator.pop(context);
+              },
+            ),
+          ],
         ),
-        automaticallyImplyLeading: false,
-        leading: null,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () async {
-              if (widget.fbUser != null) {
-                await signOut();
-              }
-              Toast.show('Logout Successfully!!', context,
-                  gravity: Toast.BOTTOM,
-                  duration: Toast.LENGTH_SHORT,
-                  textColor: Colors.white,
-                  backgroundColor: Colors.grey);
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Image(
-            image: NetworkImage(widget.fbProfileData['picture']['data']['url']),
-          ),
-          Text(
-            widget.fbProfileData['name'],
-            style: KredTextStyle,
-            textAlign: TextAlign.center,
-          ),
-        ],
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Image(
+              image: NetworkImage(widget.fbProfileData['picture']['data']['url']),
+            ),
+            Text(
+              widget.fbProfileData['name'],
+              style: KredTextStyle,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

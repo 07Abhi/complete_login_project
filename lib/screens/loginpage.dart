@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
         final graphRespone = await http.get(
             'https://graph.facebook.com/v2.12/me?fields=name,picture,email&access_token=${token}');
         final profile = JSON.jsonDecode(graphRespone.body);
-        print(profile);
+        
         setState(() {
           userProfile = profile;
         });
