@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "721252566086",
+    "firebase_url": "https://completelogin-490ce.firebaseio.com",
+    "project_id": "completelogin-490ce",
+    "storage_bucket": "completelogin-490ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721252566086:android:4cc5e2615d99ede3e9b647",
+        "android_client_info": {
+          "package_name": "com.example.completeloginproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721252566086-5sicpv6grr7mhg9remaeub8egq9mv73l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.completeloginproject",
+            "certificate_hash": "329654edc6020fc2bff9b9c726c125da56592b57"
+          }
+        },
+        {
+          "client_id": "721252566086-5sedksj02pnfrm991d06u3sjp6e9kh1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCORuvlgu8Y8PQrD9gct9z-j7Fe0UlVK6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721252566086-5sedksj02pnfrm991d06u3sjp6e9kh1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
